@@ -1,0 +1,21 @@
+question:保留最后N个元素
+
+desc:我们希望在迭代或者其他形式的处理过程中对最后几项记录做一个有限的历史记录。
+	这是collections.deque的最佳应用场景
+
+eg.
+	d = deque(maxlen = 3)
+	d.append(1)
+	d.append(2)
+	d.append(3)
+	d.append(4)
+
+更普遍的是，当你需要一个简单的队列结构时，deque可以助你一臂之力。如果不指定队列的大小，也就得到了一个无界限的队列，可以在两端执行添加和删除操作。从队列的两端添加或弹出元素的复杂度都是O(1)
+eg.
+	q = deque()
+	q.append(1)
+	q.append(2)
+	q.appendleft(3)
+	q.pop()
+	q.popleft()
+
