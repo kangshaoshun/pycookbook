@@ -1,0 +1,26 @@
+介绍一个有序字典OrderedDict
+如果希望保持词典的输出顺序和输入顺序不变的话，这个OrderedDict就能起点作用了。
+
+
+code:
+	from collections import OrderedDict
+	d = OrderedDict()
+	d['kang'] = 1
+	d['shao'] = 2
+	d['shun'] = 3
+
+	for key in d:
+		print key,d[key]
+	#kang 1
+	#shao 2
+	#shun 3
+
+ps.如果希望用json dumps字典d,需要使用原生json库，不应该使用ujson,使用ujson不能保证dumps有序了，原因未知。
+
+	>>>json.dumps(d)
+	'{"kang": 1, "shao": 2, "shun": 3}'
+	>>>ujson.dumps(d)
+	'{"shun":3,"kang":1,"shao":2}'
+
+讨论：
+	OrderedDict是在内部维护了一个双向链表，他会根据元素加入的顺序来排列键的位置。由于维护了一个双向链表，所以OrderedDict的大小是普通字典的两倍，如果设计对大量的元素进行维护顺序则需要权衡一下是否有必要。

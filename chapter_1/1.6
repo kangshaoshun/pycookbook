@@ -1,0 +1,19 @@
+将字典中的键映射到多个值
+
+通常的做法一般是
+	d = dict()
+	d['a'] = []
+	d['a'].append(****)
+
+这没有错，并且也ok,但是今天介绍一个高级一点装逼用的：
+code:
+	from collections import defaultdict
+	d = defaultdict(list)
+	d['a'].append(**)
+
+defaultdict会自动初始化第一个值。
+
+结论：如果需要在dict的key中映射多个value,就完全可以使用defaultdict代替dict.
+
+
+

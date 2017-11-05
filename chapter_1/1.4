@@ -1,0 +1,14 @@
+question:选取n个最大/n个最小的元素
+desc:heapq
+	heapq.nlargest()
+	heapq.nsmallest()
+
+code:
+	a = [1,2,9,2,3,4,1]
+	heapq.nlargest(3, a)
+	heapq.nsmallest(2, a)
+
+ps :当n为1时，直接用min,max效率会更好，
+	这里的nlargest(),nsmallest()针对的时n不大
+	如果N大小和序列长度大小相当，那么建议先排序在切片
+
